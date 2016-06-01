@@ -37,11 +37,6 @@
     "copy-webpack-plugin": "2.x",
     "css-loader": "~0.23.0",
     "cz-conventional-changelog": "^1.1.5",
-    "eslint": "2.x",
-    "eslint-config-airbnb": "7.x",
-    "eslint-plugin-jsx-a11y": "0.x",
-    "eslint-plugin-react": "4.x",
-    "ghooks": "^1.0.3",
     "open-browser-webpack-plugin": "0.0.2",
     "style-loader": "~0.13.0",
     "validate-commit-msg": "2.x",
@@ -56,10 +51,6 @@
   "author": "Vinícius Borriello",
   "license": "MIT",
   "config": {
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "commit-msg": "npm run lint:msg"
-    },
     "validate-commit-msg": {
       "types": [
         "feat",
