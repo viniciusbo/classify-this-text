@@ -1,7 +1,7 @@
 {
   "name": "classify-this-text",
   "version": "1.0.0",
-  "description": "",
+  "description": "Manually classify text from Twitter stream to be used as training set through this easy to use interface.",
   "main": "app/main.jsx",
   "scripts": {
     "lint": "eslint 'app/**/*.@(js|jsx)'",
