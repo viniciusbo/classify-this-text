@@ -11,7 +11,8 @@ export default class TextList extends React.Component {
   static propTypes = {
     data: React.PropTypes.instanceOf(List).isRequired,
     categories: React.PropTypes.instanceOf(List).isRequired,
-    onClassificate: React.PropTypes.func.isRequired
+    onClassificate: React.PropTypes.func.isRequired,
+    onRemove: React.PropTypes.func.isRequired
   }
 
   render() {
@@ -20,12 +21,17 @@ export default class TextList extends React.Component {
         key={row.id}
         data={row}
         categories={this.props.categories}
-        onClassificate={this.onClassificate.bind(this, index)} />;
+        onClassificate={this.onClassificate.bind(this, index)}
+        onRemove={this.onRemove.bind(this, index)} />;
     });
     return <div>{textList}</div>;
   }
 
   onClassificate(index, data, category) {
     this.props.onClassificate(index, data, category);
+  }
+
+  onRemove(index) {
+    this.props.onRemove(index);
   }
 }

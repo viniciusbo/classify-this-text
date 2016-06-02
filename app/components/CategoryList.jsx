@@ -13,17 +13,18 @@ export default class CategoryList extends React.Component {
 
   render() {
     const categoryList = this.props.categories.map((category, index) => {
-      return <a href="#" className="btn" key={index} onClick={this.handleTextClassification.bind(this, category)}>{category.name}</a>;
+      return <li key={index}><a href="#" className="btn label label-primary" onClick={this.handleTextClassification.bind(this, category)}>{category.name}</a></li>;
     }, this);
     return (
-      <div>
-        <small>Pick one:</small>
+      <ul className="list-inline">
+        <li><small>Pick one:</small></li>
         {categoryList}
-      </div>
+      </ul>
     );
   }
 
-  handleTextClassification(category) {
+  handleTextClassification(category, event) {
+    event.preventDefault();
     this.props.onClick(category);
   }
 }

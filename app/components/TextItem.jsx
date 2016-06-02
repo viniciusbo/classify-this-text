@@ -11,13 +11,17 @@ export default class TextItem extends React.Component {
   static propTypes = {
     data: React.PropTypes.object.isRequired,
     categories: React.PropTypes.instanceOf(List).isRequired,
-    onClassificate: React.PropTypes.func.isRequired
+    onClassificate: React.PropTypes.func.isRequired,
+    onRemove: React.PropTypes.func.isRequired
   }
 
   render() {
     return (
       <div className="panel panel-default">
-        <div className="panel-body">{this.props.data.text}</div>
+        <div className="panel-body">
+          <button type="button" className="close pull-right" onClick={this.handleRemove.bind(this)}><span className="fa fa-close"></span></button>
+          {this.props.data.text}
+        </div>
         <div className="panel-footer">
           {this.renderCategoryListOrLoading()}
         </div>
@@ -34,5 +38,9 @@ export default class TextItem extends React.Component {
 
   handleCategoryClick(category) {
     this.props.onClassificate(this.props.data, category);
+  }
+
+  handleRemove() {
+    this.props.onRemove();
   }
 }
