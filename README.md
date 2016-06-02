@@ -5,7 +5,7 @@ Manually classify text from Twitter stream to be used as training set through th
 First, you should clone the repo and install the dependencies.
 
 ```bash
-$ git clone git@github.com:ruanyf/react-babel-webpack-boilerplate.git <yourAppName>
+$ git clone git@github.com:viniciusbo/classify-this-text.git <yourAppName>
 $ cd <yourAppName>
 $ npm install
 $ export TWITTER_CONSUMER_KEY="your twitter consumer key"
