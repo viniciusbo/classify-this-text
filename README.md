@@ -1,3 +1,5 @@
+# Classify this text
+
 Manually classify text from Twitter stream to be used as training set through this easy to use interface.
 
 ## How to use
@@ -5,8 +7,8 @@ Manually classify text from Twitter stream to be used as training set through th
 First, you should clone the repo and install the dependencies.
 
 ```bash
-$ git clone git@github.com:viniciusbo/classify-this-text.git <yourAppName>
-$ cd <yourAppName>
+$ git clone git@github.com:viniciusbo/classify-this-text.git classify-this-text
+$ cd classify-this-text
 $ npm install
 $ export TWITTER_CONSUMER_KEY="your twitter consumer key"
 $ export TWITTER_CONSUMER_SECRET="your twitter consumer secret"
@@ -22,4 +24,12 @@ Then, launch the app.
 $ npm start
 ```
 
-You should see a new browser tap opening and a title of "Hello World" in http://127.0.0.1:8080.
+You should see a new browser tap opening in http://127.0.0.1:8080.
+
+## TODO
+
+- Configurable classes
+
+## License
+
+ISC

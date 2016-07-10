@@ -19,10 +19,10 @@ export default class TextItem extends React.Component {
     return (
       <div className="panel panel-default">
         <div className="panel-body">
-          <button type="button" className="close pull-right" onClick={this.handleRemove.bind(this)}><span className="fa fa-close"></span></button>
           {this.props.data.text}
         </div>
         <div className="panel-footer">
+          <button type="button" className="close pull-right" onClick={this.handleRemove.bind(this)}><span className="fa fa-close"></span></button>
           {this.renderCategoryListOrLoading()}
         </div>
       </div>

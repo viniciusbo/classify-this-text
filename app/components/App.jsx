@@ -17,39 +17,28 @@ export default class App extends React.Component {
         categories: List([
           {
             key: 0,
-            name: 'Transporte'
+            name: 'Transporte',
+            keywords: 'onibus,busao,transito,carro,moto,rodovia,estrada,acidente,trafego,engarrafamento'
           },
           {
             key: 1,
-            name: 'Qualidade de vida'
+            name: 'Educação',
+            keywords: 'universidade,escola,aluno,professor,prof,aula,prova,ensino'
           },
           {
             key: 2,
-            name: 'Eventos'
+            name: 'Lazer',
+            keywords: '"lugar bonito",viagem,passeio,praia,passear,trilha,trip,verao,"foi divertido",visitar,visita,visite,conheça,rodoviaria'
           },
           {
             key: 3,
-            name: 'Educação'
+            name: 'Segurança pública',
+            keywords: 'assalto,roubo,assaltado,roubado,bandido,ladrao,sequestro,marginal'
           },
           {
             key: 4,
-            name: 'Turismo'
-          },
-          {
-            key: 5,
-            name: 'Clima'
-          },
-          {
-            key: 6,
-            name: 'Segurança'
-          },
-          {
-            key: 7,
-            name: 'Lazer'
-          },
-          {
-            key: 10,
-            name: 'Outros'
+            name: 'Saúde',
+            keywords: 'gripe,chicungunha,denge,zika,resfriado,infarto,infarte,derrame,avg,doente,doença,dodoi,hospital,"posto de saude",postinho,uti,hospitalizado,febre,"dor no corpo",upa'
           }
         ]),
         texts: List()
@@ -82,8 +71,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header query={this.state.data.get('query')} />
-
         <main>
           <div className="container">
             <h3>In which category does the text fits most?</h3>

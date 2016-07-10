@@ -39,19 +39,47 @@ function initServer(err, results) {
     socket.emit('query', query);
 
     results.twitterStream.on('data', function onNewTweet(tweet) {
-      if (tweet.text.slice(0, 2) === 'RT')
-        return;
-
       socket.emit('data', { id: tweet.id_str, text: tweet.text });
     });
 
     socket.on('classificate', function onTextClassificate(data, category, cb) {
-      console.log(data, category);
+      results.db.collection(process.env.MONGODB_COLLECTION).insert(mapDoc(data, category))
       cb();
     })
+
+    socket.on('error', function onSocketError(err) {
+      console.error(err);
+    });
   });
 
   http.listen(8090, function onServerStart() {
     console.log('Socket server listening on port 8090');
   });
+}
+
+function mapDoc(data, category) {
+  var text = removeUrlsFromText(data.text);
+  text = removeTwitterUserMention(text);
+  text = removeHashTags(text);
+  text = removeRT(text);
+  return {
+    t: text,
+    c: category.key
+  };
+}
+
+function removeUrlsFromText(text) {
+  return text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+}
+
+function removeTwitterUserMention(text) {
+  return text.replace(/\B@[a-z0-9_-]+/gi, '');
+}
+
+function removeHashTags(text) {
+  return text.replace(/#([^\\s]*)/g, '');
+}
+
+function removeRT(text) {
+  return text.replace(/^RT\s/g, '');
 }
