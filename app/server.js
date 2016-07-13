@@ -58,12 +58,12 @@ function initServer(err, results) {
 }
 
 function mapDoc(data, category) {
-  var text = removeUrlsFromText(data.text);
-  text = removeTwitterUserMention(text);
-  text = removeHashTags(text);
-  text = removeRT(text);
+  // var text = removeUrlsFromText(data.text);
+  // text = removeTwitterUserMention(text);
+  // text = removeHashTags(text);
+  // text = removeRT(text);
   return {
-    t: text,
+    t: data.text,
     c: category.key
   };
 }
