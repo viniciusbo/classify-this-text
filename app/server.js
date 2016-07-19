@@ -39,6 +39,9 @@ function initServer(err, results) {
     socket.emit('query', query);
 
     results.twitterStream.on('data', function onNewTweet(tweet) {
+      if (tweet.text.indexOf('RT @') > -1)
+        return;
+
       socket.emit('data', { id: tweet.id_str, text: tweet.text });
     });
 
